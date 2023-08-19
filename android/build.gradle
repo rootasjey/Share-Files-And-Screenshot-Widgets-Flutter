@@ -24,6 +24,11 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    // Conditional for compatibility with AGP <4.2.
+    if (project.android.hasProperty("namespace")) {
+        namespace 'com.twwm.share_files_and_screenshot_widgets'
+    }
+
     compileSdkVersion 28
 
     defaultConfig {
